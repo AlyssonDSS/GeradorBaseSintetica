@@ -1,4 +1,4 @@
-# GeradorBaseSintetica  <*README.md em construção*>
+# GeradorBaseSintetica
 ### Code used for the development of the BID Dataset: A Challenge Dataset for Document Processing Tasks. (Best Work of SIBGRAPI 2020 in Workshop of Works in Progress)
 
 O arquivo **generic_img_generator.py** é o arquivo principal do trabalho, o qual une grande parte dos diversos processos utilizados para a geração da base que será descrito em seguida...
@@ -8,7 +8,7 @@ O arquivo **generic_img_generator.py** é o arquivo principal do trabalho, o qua
 
 Segue um exemplo de um campo do layout e um de informações pessoais.
 
-``` "region_attributes": {"info_type":"d","text_type":"d","transcription":"NOME"} ```  
+``` "region_attributes": {"info_type":"d","text_type":"d","transcription":"NOME"} ``` <br/>
 ``` "region_attributes":{"info_type":"p","text_type":"data","transcription":"X"} ```
 
 2. Após as rotulações serem concluídas, as imagens passam por um pré-processamento utilizando Tesseract-OCR, o qual identifica a posição que o documento está e o rotaciona para o sentido de 0 graus (leitura da esquerda para a direita) com o objetivo de facilitar a inserção dos textos fictícios.
@@ -23,15 +23,15 @@ Segue um exemplo de um campo do layout e um de informações pessoais.
 
 Segue um exemplo da saída do .txt:
 
-**x, y, width, height, transcription**
-123, 120, 270, 8, BACELLAR SCHALLENMUELLER MALGUEIRO
+```x, y, width, height, transcription```<br/>
+```123, 120, 270, 8, BACELLAR SCHALLENMUELLER MALGUEIRO```
 
 Onde x e y indicam as coordenadas X e Y, respectivamente, da ponta superior esquerda do retângulo, *width* indica a largura do retângulo, *height* indica a altura do retângulo e *transcriptio* indica a transcrição do texto presente na área.
 
 Para os casos em que o texto não é um retângulo perfeito, a saída é dada no seguinte formato:
 
-**x, y, width, height, transcription**
-[233, 232, 513, 514, 233], [41, 55, 57, 45, 42], -1, -1, MINISTÉRIO DAS CIDADES
+```x, y, width, height, transcription```<br/>
+```[233, 232, 513, 514, 233], [41, 55, 57, 45, 42], -1, -1, MINISTÉRIO DAS CIDADES```
 
 Onde as coordenadas X e Y são dadas por uma sequência de pontos que formam o polígono que engloba o texto. E os campos de altura e largura são dados como -1 para esses casos.
 
